@@ -244,6 +244,7 @@
           null,
           1,
           1,
+          1,
           null
         ]
       },
@@ -267,15 +268,18 @@
           null
         ]
       },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/controllers/teams_controller.rb": {
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/player.rb": {
         "lines": [
           1,
           1,
-          0,
-          null,
-          null,
+          null
+        ]
+      },
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/controllers/players_controller.rb": {
+        "lines": [
           1,
-          null,
+          1,
+          1,
           1,
           null,
           null
@@ -288,6 +292,6 @@
         ]
       }
     },
-    "timestamp": 1648009168
+    "timestamp": 1648010370
   }
 }
