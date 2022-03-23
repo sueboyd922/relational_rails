@@ -242,6 +242,8 @@
         "lines": [
           1,
           null,
+          1,
+          1,
           null
         ]
       },
@@ -251,7 +253,7 @@
           null
         ]
       },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/player.rb": {
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/team.rb": {
         "lines": [
           1,
           1,
@@ -265,25 +267,27 @@
           null
         ]
       },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/spec/models/team_spec.rb": {
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/controllers/teams_controller.rb": {
         "lines": [
+          1,
+          1,
+          0,
+          null,
+          null,
           1,
           null,
           1,
-          1,
-          2,
           null,
           null
         ]
       },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/team.rb": {
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/controllers/application_controller.rb": {
         "lines": [
-          1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1647998093
+    "timestamp": 1648009168
   }
 }
