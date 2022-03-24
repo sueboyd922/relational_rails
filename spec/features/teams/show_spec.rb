@@ -8,6 +8,7 @@ RSpec.describe 'teams show page' do
     visit "/teams/#{team_1.id}"
 
     save_and_open_page
+
     expect(page).to have_content(team_1.name)
     expect(page).to have_content(team_1.games_played)
     expect(page).to have_content(team_1.winning_record)
