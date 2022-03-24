@@ -4,7 +4,13 @@ class TeamsController < ApplicationController
   end
 
   def show
-    # require "pry"; binding.pry
     @team = Team.find(params[:id])
+  end
+
+  def players
+    @team = Team.find(params[:id])
+    @players = @team.players
+    # @players = Team.find(params[:id]).players
+    # require "pry"; binding.pry
   end
 end

@@ -1,0 +1,5 @@
+<h3><%= @team.name %></h3>
+
+<% @players.each do |player| %>
+<p> <strong><%= player.name %></strong> : Position: <%= player.position %> Points: <%= player.points %> Active: <%= player.active %> </p>
+<% end %>
