@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'players index page' do
+RSpec.describe 'players index page', type: :feature do
   it 'shows all players' do
     team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
     player_1 = Player.create!(name: 'Josh Allen', position: 'QB', points: 312, active: true, team_id: team_1.id)

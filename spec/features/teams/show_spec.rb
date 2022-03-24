@@ -12,5 +12,7 @@ RSpec.describe 'teams show page' do
     expect(page).to have_content(team_1.name)
     expect(page).to have_content(team_1.games_played)
     expect(page).to have_content(team_1.winning_record)
+
+    expect(page).not_to have_content(team_2.name)
   end
 end
