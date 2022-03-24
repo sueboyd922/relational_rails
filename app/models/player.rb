@@ -4,4 +4,5 @@ class Player < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :position
   validates_presence_of :points
+  validates_inclusion_of :active, :in => [true, false]
 end
