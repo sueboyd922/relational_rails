@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'teams show page' do
-  it 'shows all teams' do
+  it 'shows specific team\'s data' do
     team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
     team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
 

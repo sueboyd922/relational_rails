@@ -3,6 +3,8 @@ class CreateTeams < ActiveRecord::Migration[5.2]
     create_table :teams do |t|
       t.string :name
       t.integer :games_played
+
+      
     end
   end
 end

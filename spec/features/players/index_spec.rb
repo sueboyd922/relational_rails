@@ -6,7 +6,6 @@ RSpec.describe 'players index page' do
     player_1 = Player.create!(name: 'Josh Allen', position: 'QB', points: 312, active: true, team_id: team_1.id)
     player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: team_1.id)
 
-    require "pry"; binding.pry
     visit '/players'
 
     save_and_open_page
