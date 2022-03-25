@@ -79,5 +79,49 @@ RSpec.describe 'index links on each page' do
     expect(page).to have_content(@player_3.name)
   end
 
+  it 'has a link to the teams index in the teams index page' do
+    visit '/teams'
+    expect(page).to have_link('Teams Index')
+    click_link('Teams Index')
+
+    expect(page).to have_content(@team_1.name)
+    expect(page).to have_content(@team_2.name)
+  end
+
+  it 'has a link to the teams index in the each teams show page' do
+    visit "/teams/#{@team_1.id}"
+    expect(page).to have_link('Teams Index')
+    click_link('Teams Index')
+
+    expect(page).to have_content(@team_1.name)
+    expect(page).to have_content(@team_2.name)
+  end
+
+  it 'has a link to the teams index in each teams specific players page' do
+    visit "/teams/#{@team_2.id}/players"
+    expect(page).to have_link('Teams Index')
+    click_link('Teams Index')
+
+    expect(page).to have_content(@team_1.name)
+    expect(page).to have_content(@team_2.name)
+  end
+
+  it 'has a link to the teams index in the players index' do
+    visit '/players'
+    expect(page).to have_link('Teams Index')
+    click_link('Teams Index')
+
+    expect(page).to have_content(@team_1.name)
+    expect(page).to have_content(@team_2.name)
+  end
+
+  it 'has a link to the teams index in the players show page' do
+    visit "/players/#{@player_1.id}"
+    expect(page).to have_link('Teams Index')
+    click_link('Teams Index')
+
+    expect(page).to have_content(@team_1.name)
+    expect(page).to have_content(@team_2.name)
+  end
 
 end
