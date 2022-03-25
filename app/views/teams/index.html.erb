@@ -1,5 +1,5 @@
 <h1>Fantasy Football Teams</h1>
 
 <% @teams.each do |team| %>
-  <p><%= team.name %> <strong>created at</strong> <%= team.created_at %></p>
+  <p><%= team.name %> <strong>created at</strong> <%= team.readable_date %></p>
   <% end %>

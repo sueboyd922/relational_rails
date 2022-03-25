@@ -4,4 +4,8 @@ class Team < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :games_played
   validates_inclusion_of :winning_record, :in => [true, false]
+
+  def readable_date
+    created_at.strftime('%m/%d/%Y %H:%M %p')
+  end
 end

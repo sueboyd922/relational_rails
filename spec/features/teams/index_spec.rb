@@ -25,8 +25,8 @@ RSpec.describe 'teams index page' do
     expect(team_4.name).to appear_before(team_3.name)
     expect(team_3.name).to appear_before(team_2.name)
     expect(team_2.name).to appear_before(team_1.name)
-    exepect(team_4.created_at).to appear_before(team_3.created_at)
-    exepect(team_3.created_at).to appear_before(team_2.created_at)
-    expect(team_2.created_at).to appear_before(team_1.created_at)
+    expect(team_4.readable_date).to appear_before(team_3.readable_date)
+    expect(team_3.readable_date).to appear_before(team_2.readable_date)
+    expect(team_2.readable_date).to appear_before(team_1.readable_date)
   end
 end
