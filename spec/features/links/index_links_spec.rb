@@ -124,4 +124,16 @@ RSpec.describe 'index links on each page' do
     expect(page).to have_content(@team_2.name)
   end
 
+  it 'has a link on each team show page to go to the teams specific players page' do
+    visit "/teams/#{@team_1.id}"
+    expect(page).to have_link("#{@team_1.name}'s Players")
+    click_link("#{@team_1.name}'s Players")
+
+    expect(page).to have_content(@player_1.name)
+    expect(page).to have_content(@player_1.position)
+    expect(page).to have_content(@player_2.name)
+    expect(page).to have_content(@player_2.position)
+    expect(page).not_to have_content(@player_3.name)
+    expect(page).not_to have_content(@player_3.position)
+  end
 end
