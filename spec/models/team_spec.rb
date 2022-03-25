@@ -20,5 +20,15 @@ RSpec.describe Team, type: :model do
       date = Time.now.utc
       expect(team.readable_date).to eq(date.strftime('%m/%d/%Y %H:%M %p'))
     end
+
+    it 'can count how many players on each team' do
+      team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
+      player_1 = Player.create!(name: 'Josh Allen', position: 'QB', points: 312, active: true, team_id: team_1.id)
+      player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: team_1.id)
+
+      expect(team_1.num_of_players).to eq 2
+    end
+
+
   end
 end

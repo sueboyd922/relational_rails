@@ -8,4 +8,8 @@ class Team < ApplicationRecord
   def readable_date
     created_at.strftime('%m/%d/%Y %H:%M %p')
   end
+
+  def num_of_players
+    self.players.count
+  end
 end
