@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.all
+    @teams = Team.all.order(created_at: :desc)
+    require "pry"; binding.pry
   end
 
   def show
