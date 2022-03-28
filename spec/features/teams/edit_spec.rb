@@ -21,6 +21,6 @@ RSpec.describe 'team edit page' do
 
     expect(current_path).to eq("/teams")
     expect(page).to have_content("Dakstreet's Back")
-    expect(page).to not_have_content("Dakstreet Boys")
+    expect(page).to have_no_content("Dakstreet Boys")
   end
 end

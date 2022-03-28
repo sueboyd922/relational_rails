@@ -16,11 +16,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    team = Team.create!(
-      name: params[:name],
-      winning_record: params[:winning_record],
-      games_played: params[:games_played]
-    )
+    team = Team.create!(team_params)
     redirect_to "/teams"
   end
 
@@ -29,5 +25,12 @@ class TeamsController < ApplicationController
   end
 
   def update
+    team = Team.update(team_params)
+    redirect_to '/teams'
   end
+
+  private
+    def team_params
+      params.permit(:name, :games_played, :winning_record)
+    end
 end
