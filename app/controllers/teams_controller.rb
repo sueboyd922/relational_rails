@@ -15,4 +15,14 @@ class TeamsController < ApplicationController
 
   def new
   end
+
+  def create
+    team = Team.create!(
+      name: params[:name],
+      winning_record: params[:winning_record],
+      games_played: params[:games_played]
+    )
+    team.save
+    redirect_to "/teams"
+  end
 end
