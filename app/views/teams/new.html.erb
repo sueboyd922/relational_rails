@@ -1,1 +1,9 @@
 <h3> Create New Team </h3>
+
+<%= form_with url: "/teams", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :winning_record %>
+  <%= form.text_field :winning_record %>
+  <%= form.label :games_played %>
+  <%= form.text_field :games_played %>
