@@ -1,22 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe 'teams index page' do
+  before (:each) do
+    @team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
+    @team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
+    @team_3 = Team.create!(name: 'Gym Tannehill Laundry', games_played: 9, winning_record: true)
+    @team_4 = Team.create!(name: 'Red Solo Kupp', games_played: 10, winning_record: false)
   it 'shows all teams' do
-    team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
-    team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
+    # team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
+    # team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
     visit '/teams'
 
     # save_and_open_page
 
     expect(page).to have_content(team_1.name)
     expect(page).to have_content(team_2.name)
+    expect(page).to have_content(team_3.name)
+    expect(page).to have_content(team_4.name)
   end
 
   it 'shows all the teams in order of created_at, most recent first' do
-    team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
-    team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
-    team_3 = Team.create!(name: 'Gym Tannehill Laundry', games_played: 9, winning_record: true)
-    team_4 = Team.create!(name: 'Red Solo Kupp', games_played: 10, winning_record: false)
+    # team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
+    # team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
+    # team_3 = Team.create!(name: 'Gym Tannehill Laundry', games_played: 9, winning_record: true)
+    # team_4 = Team.create!(name: 'Red Solo Kupp', games_played: 10, winning_record: false)
 
     visit '/teams'
 
@@ -28,5 +35,13 @@ RSpec.describe 'teams index page' do
     # expect(team_4.readable_date).to appear_before(team_3.readable_date)
     # expect(team_3.readable_date).to appear_before(team_2.readable_date)
     # expect(team_2.readable_date).to appear_before(team_1.readable_date)
+  end
+
+  it 'links to create a new team' do
+    visit '/teams'
+
+    expect(page).to have_link("New Team")
+    click_link("New Team")
+    expect(current_path).to eq("/teams/new")
   end
 end
