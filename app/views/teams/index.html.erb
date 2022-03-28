@@ -1,11 +1,8 @@
-<a href="/players">Players Index</a> <a href="/teams">Teams Index</a>
-
+<%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
 <h1>Fantasy Football Teams</h1>
 
 <% @teams.each do |team| %>
   <p><%= team.name %> <strong>created at</strong> <%= team.readable_date %></p>
   <% end %>
 
-<div>
-<a href="/teams/new">New Team</a>
-</div>
+<%= link_to "New Team", "/teams/new" %>

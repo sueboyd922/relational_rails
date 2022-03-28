@@ -146,13 +146,14 @@ RSpec.describe 'index links on each page' do
     @views.each do |view|
       visit view
 
-      expect(page).to have_link('Players Index')
-      click_link('Players Index')
+      expect(page).to have_link('All Players')
+      click_link('All Players')
       expect(current_path).to eq("/players")
 
       expect(page).to have_content(@player_1.name)
       expect(page).to have_content(@player_2.name)
       expect(page).to have_content(@player_3.name)
+      expect(page).not_to have_content(@team_1.name)
     end
   end
 
@@ -160,12 +161,13 @@ RSpec.describe 'index links on each page' do
     @views.each do |view|
       visit view
 
-      expect(page).to have_link('Teams Index')
-      click_link('Teams Index')
+      expect(page).to have_link('All Teams')
+      click_link('All Teams')
       expect(current_path).to eq("/teams")
 
       expect(page).to have_content(@team_1.name)
       expect(page).to have_content(@team_2.name)
+      expect(page).not_to have_content(@player_3.name)
     end
   end
 end

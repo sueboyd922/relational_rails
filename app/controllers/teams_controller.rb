@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    # require "pry"; binding.pry
     @team = Team.find(params[:id])
   end
 
@@ -22,7 +21,13 @@ class TeamsController < ApplicationController
       winning_record: params[:winning_record],
       games_played: params[:games_played]
     )
-    team.save
     redirect_to "/teams"
+  end
+
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
   end
 end
