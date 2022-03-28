@@ -13,7 +13,7 @@ class Team < ApplicationRecord
     created_at.strftime('%m/%d/%Y %H:%M %p')
   end
 
-  def self.num_of_players
+  def num_of_players
     players.count
   end
 end

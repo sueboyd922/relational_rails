@@ -132,6 +132,7 @@ RSpec.describe 'index links on each page' do
 
     expect(page).to have_link("#{@team_1.name}'s Players")
     click_link("#{@team_1.name}'s Players")
+    expect(current_path).to eq("/teams/#{@team_1.id}/players")
 
     expect(page).to have_content(@player_1.name)
     expect(page).to have_content(@player_1.position)
@@ -147,6 +148,7 @@ RSpec.describe 'index links on each page' do
 
       expect(page).to have_link('Players Index')
       click_link('Players Index')
+      expect(current_path).to eq("/players")
 
       expect(page).to have_content(@player_1.name)
       expect(page).to have_content(@player_2.name)
@@ -160,6 +162,7 @@ RSpec.describe 'index links on each page' do
 
       expect(page).to have_link('Teams Index')
       click_link('Teams Index')
+      expect(current_path).to eq("/teams")
 
       expect(page).to have_content(@team_1.name)
       expect(page).to have_content(@team_2.name)
