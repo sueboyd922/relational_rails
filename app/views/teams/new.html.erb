@@ -2,10 +2,10 @@
 
 <%= form_with url: "/teams", method: :post, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br/><br/>
   <%= form.label :winning_record %>
-  <%= form.text_field :winning_record %>
+  <%= form.select :winning_record, ["true", "false"] %><br/><br/>
   <%= form.label :games_played %>
-  <%= form.text_field :games_played %>
+  <%= form.text_field :games_played %><br/><br/>
   <%= form.submit "Create Team" %>
   <% end %>
