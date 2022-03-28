@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'teams index page' do
+RSpec.describe 'teams new page' do
   it 'can create a new team' do
     visit '/teams'
 
@@ -9,7 +9,7 @@ RSpec.describe 'teams index page' do
 
     fill_in("Name", with: "No Punt Intended")
     # fill_in("Winning record", with: false)
-    select "false", :from => :winning_record
+    select "false", from: :winning_record
     fill_in("Games played", with: 10)
     click_on("Create Team")
     # new_team = Team.last

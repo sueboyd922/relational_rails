@@ -7,6 +7,7 @@ RSpec.describe 'teams index page' do
     @team_3 = Team.create!(name: 'Gym Tannehill Laundry', games_played: 9, winning_record: true)
     @team_4 = Team.create!(name: 'Red Solo Kupp', games_played: 10, winning_record: false)
   end
+  
   it 'shows all teams' do
     visit '/teams'
 
@@ -27,14 +28,6 @@ RSpec.describe 'teams index page' do
     # expect(team_4.readable_date).to appear_before(team_3.readable_date)
     # expect(team_3.readable_date).to appear_before(team_2.readable_date)
     # expect(team_2.readable_date).to appear_before(team_1.readable_date)
-  end
-
-  it 'links to create a new team' do
-    visit '/teams'
-
-    expect(page).to have_link("New Team")
-    click_link("New Team")
-    expect(current_path).to eq("/teams/new")
   end
 
 end
