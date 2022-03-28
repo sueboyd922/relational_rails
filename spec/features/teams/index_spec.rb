@@ -36,4 +36,5 @@ RSpec.describe 'teams index page' do
     click_link("New Team")
     expect(current_path).to eq("/teams/new")
   end
+
 end
