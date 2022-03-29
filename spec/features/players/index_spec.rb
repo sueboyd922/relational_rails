@@ -42,7 +42,7 @@ RSpec.describe 'players index page', type: :feature do
     player_3 = Player.create!(name: "Davante Adams", position: 'WR', points: 243, active: false, team_id: team_1.id)
     player_4 = Player.create!(name: "Travis Kelce", position: 'TE', points: 224, active: true, team_id: team_1.id)
 
-    Player.all.each do |player|
+    Player.active_players.each do |player|
       visit '/players'
       within ".player-#{player.id}" do
         expect(page).to have_link("Update")
@@ -50,6 +50,8 @@ RSpec.describe 'players index page', type: :feature do
         expect(current_path).to eq("/players/#{player.id}/edit")
       end
     end
-  end
 
+    visit '/players'
+    expect(page).not_to have_content(player_3.name)
+  end
 end

@@ -1,5 +1,7 @@
 <!-- <a href="/players">Players Index</a> <a href="/teams">Teams Index</a> -->
 <%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
 <% @players.each do |player| %>
-<p>Player: <%= player.name %> Position: <%= player.position %> Points Scored: <%= player.points %> Active: <%= player.active %><br/>
+ <div class="player-<%=player.id%>">
+<p>Player: <%= player.name %> Position: <%= player.position %> Points Scored: <%= player.points %> Active: <%= player.active %> <%= link_to "Update", "/players/#{player.id}/edit"%><br/>
+  </div>
 <% end %>
