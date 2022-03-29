@@ -264,6 +264,30 @@
           null
         ]
       },
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/player.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/team.rb": {
         "lines": [
           1,
@@ -286,71 +310,8 @@
           null,
           null
         ]
-      },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/models/player.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/controllers/players_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/susanboyd/turing/2module/projects/relational_rails/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1648523705
+    "timestamp": 1648525048
   }
 }
