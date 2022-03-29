@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :players
+  has_many :players, dependent: :delete_all
 
   validates_presence_of :name
   validates_presence_of :games_played
