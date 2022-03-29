@@ -27,10 +27,25 @@ RSpec.describe 'teams index page' do
     expect(@team_2.name).not_to appear_before(@team_4.name)
   end
 
-  it 'each parent has a link to edit their info' do
-    visit '/teams'
+  it 'each team has a link to edit their info' do
+    # visit '/teams'
+    #
+    # within ".team-#{@team_4.id}" do
+    #   expect(page).to have_link("Update")
+    #   click_link("Update")
+    #   expect(current_path).to eq("/teams/#{@team_4.id}/edit")
+    # end
+    #
+    # visit '/teams'
+    #
+    # within ".team-#{@team_3.id}" do
+    #   expect(page).to have_link("Update")
+    #   click_link("Update")
+    #   expect(current_path).to eq("/teams/#{@team_3.id}/edit")
+    # end
 
-    Team.all do |team|
+    Team.all.each do |team|
+      visit '/teams'
       within ".team-#{team.id}" do
         expect(page).to have_link("Update")
         click_link("Update")
