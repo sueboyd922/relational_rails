@@ -19,4 +19,28 @@ RSpec.describe 'players show page' do
     expect(page).not_to have_content(player_2.position)
     expect(page).not_to have_content(player_2.points)
   end
+
+  it 'can delete a player' do
+    jas = Team.create!(name: "Josh Allen's Shorts", games_played: 10, winning_record: true)
+    josh = Player.create!(name: "Josh Allen", position: "QB", points: 240, active: true, team_id: jas.id)
+    davante = Player.create!(name: "Davante Adams", position: "WR", points: 140, active: true, team_id: jas.id)
+    alvin = Player.create!(name: "Alvin Kamara", position: "RB", points: 138, active: true, team_id: jas.id)
+
+    visit "/players/#{alvin.id}"
+
+    click_link("Delete")
+    expect(current_path).to eq("/players")
+
+    expect(page).not_to have_content("Alvin Kamara")
+    expect(page).to have_content("Josh Allen")
+    expect(page).to have_content("Davante Adams")
+
+    visit "/teams/#{jas.id}/players"
+
+    expect(page).not_to have_content("Alvin Kamara")
+    expect(page).to have_content("Josh Allen")
+    expect(page).to have_content("Davante Adams")
+  end
+
+
 end

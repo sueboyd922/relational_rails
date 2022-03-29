@@ -5,3 +5,4 @@
 <p>Active: <%= @player.active %></p>
 
 <%= link_to "Update", "/players/#{@player.id}/edit" %>
+<%= link_to "Delete", "/players/#{@player.id}", method: :delete %>
