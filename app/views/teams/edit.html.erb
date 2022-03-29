@@ -1,11 +1,11 @@
 <h3>Update <%= @team.name %></h3>
 
-<%= form_with url: "/teams", method: :patch, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %><br/><br/>
+<%= form_with url: "/teams/#{@team.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name, "Team Name"%>
+  <%= form.text_field :name, value: "#{@team.name}"%><br/><br/>
   <%= form.label :winning_record %>
-  <%= form.select :winning_record, ["true", "false"] %><br/><br/>
+  <%= form.select :winning_record, ["true", "false"], value: @team.winning_record %><br/><br/>
   <%= form.label :games_played %>
-  <%= form.number_field :games_played, in: 0..1000, step: 1 %><br/><br/>
+  <%= form.number_field :games_played, in: 0..1000, step: 1, value: @team.games_played %><br/><br/>
   <%= form.submit "Update" %>
 <% end %>

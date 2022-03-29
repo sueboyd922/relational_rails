@@ -4,3 +4,5 @@
 <% @players.each do |player| %>
 <p> <strong><%= player.name %></strong> : Position: <%= player.position %> Points: <%= player.points %> Active: <%= player.active %> </p>
 <% end %>
+
+<%= link_to "Add New Player", "/teams/#{@team.id}/players/new" %>

@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get '/teams/:id/players', to: 'teams#players'
   post '/teams', to: 'teams#create'
   get '/teams/:id/edit', to: 'teams#edit'
-  patch '/teams', to: 'teams#update'
+  patch '/teams/:id', to: 'teams#update'
 end

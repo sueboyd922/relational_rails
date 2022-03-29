@@ -25,12 +25,13 @@ class TeamsController < ApplicationController
   end
 
   def update
-    team = Team.update(team_params)
+    @team = Team.find(params[:id])
+    @team.update(team_params)
     redirect_to '/teams'
   end
 
   private
     def team_params
-      params.permit(:name, :games_played, :winning_record)
+      params.permit(:name, :games_played, :winning_record, :id)
     end
 end
