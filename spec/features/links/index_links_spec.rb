@@ -145,14 +145,13 @@ RSpec.describe 'index links on each page' do
   it 'each page has a link to players index' do
     @views.each do |view|
       visit view
-
+      # require "pry"; binding.pry
       expect(page).to have_link('All Players')
       click_link('All Players')
       expect(current_path).to eq("/players")
 
       expect(page).to have_content(@player_1.name)
       expect(page).to have_content(@player_2.name)
-      expect(page).to have_content(@player_3.name)
       expect(page).not_to have_content(@team_1.name)
     end
   end

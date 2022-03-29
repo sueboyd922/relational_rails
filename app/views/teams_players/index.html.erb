@@ -7,4 +7,4 @@
 
 <%= link_to "Add New Player", "/teams/#{@team.id}/players/new" %>
 
-<%= link_to "Alphabetize!", "/teams/#{@team.id}/players" %>
+<%= link_to "Alphabetize!", "/teams/#{@team.id}/players?alpha=yes", method: :get %>
