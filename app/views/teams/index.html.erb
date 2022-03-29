@@ -2,7 +2,9 @@
 <h1>Fantasy Football Teams</h1>
 
 <% @teams.each do |team| %>
-  <p><%= team.name %> <strong>created at</strong> <%= team.readable_date %></p>
+   <div class="team-<%=team.id%>">
+  <p><%= team.name %> <strong>created at</strong> <%= team.readable_date %> <%= link_to "Update", "/teams/#{team.id}/edit" %></p>
+  </div>
   <% end %>
 
 <%= link_to "New Team", "/teams/new" %>

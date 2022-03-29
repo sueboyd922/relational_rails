@@ -30,10 +30,12 @@ RSpec.describe 'teams index page' do
   it 'each parent has a link to edit their info' do
     visit '/teams'
 
-    within("#team-#{@team_4.id}") do
-      expect(page).to have_link("Update")
-      click_link("Update")
-      expect(current_path).to eq("/teams/#{@team_4.id}/edit")
+    Team.all do |team|
+      within ".team-#{team.id}" do
+        expect(page).to have_link("Update")
+        click_link("Update")
+        expect(current_path).to eq("/teams/#{team.id}/edit")
+      end
     end
   end
 end
