@@ -17,6 +17,10 @@ class PlayersController < ApplicationController
     redirect_to "/teams/#{@team.id}/players"
   end
 
+  def edit
+    @player = Player.find(params[:id])
+  end
+
   private
     def players_params
       params.permit(:name, :position, :active, :points)

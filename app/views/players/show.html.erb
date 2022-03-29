@@ -3,3 +3,5 @@
 <p>Position: <%= @player.position %></p>
 <p>Points Scored: <%= @player.points %></p>
 <p>Active: <%= @player.active %></p>
+
+<%= link_to "Update", "/players/#{@player.id}/edit" %>
