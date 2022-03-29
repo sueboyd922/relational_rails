@@ -24,19 +24,19 @@ RSpec.describe 'team players page', type: :feature do
     expect(page).not_to have_content(player_3.name)
   end
 
-  it 'will not show information on a different team' do
-    team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
-    team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
-    player_1 = Player.create!(name: 'Josh Allen', position: 'QB', points: 312, active: true, team_id: team_1.id)
-    player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: team_1.id)
-    player_3 = Player.create!(name: 'Davante Adams', position: 'WR', points: 275, active: false, team_id: team_2.id)
-
-    visit "/teams/#{team_1.id}/players"
-
-    save_and_open_page
-    expect(page).to have_content(team_1.name)
-    expect(page).not_to have_content(player_3.name)
-  end
+  # it 'will not show information on a different team' do
+  #   team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
+  #   team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
+  #   player_1 = Player.create!(name: 'Josh Allen', position: 'QB', points: 312, active: true, team_id: team_1.id)
+  #   player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: team_1.id)
+  #   player_3 = Player.create!(name: 'Davante Adams', position: 'WR', points: 275, active: false, team_id: team_2.id)
+  #
+  #   visit "/teams/#{team_1.id}/players"
+  #
+  #   save_and_open_page
+  #   expect(page).to have_content(team_1.name)
+  #   expect(page).not_to have_content(player_3.name)
+  # end
 
   it 'can organize teams players in alphabetical order' do
     team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
@@ -59,5 +59,22 @@ RSpec.describe 'team players page', type: :feature do
     expect(player_2.name).to appear_before(player_4.name)
     expect(player_4.name).to appear_before(player_1.name)
     expect(player_1.name).not_to appear_before(player_4.name)
+  end
+
+  it 'has links for each player to their edit page' do
+    team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)
+    # team_2 = Team.create!(name: 'Can You Diggs It', games_played: 10, winning_record: true)
+    player_1 = Player.create!(name: 'Josh Allen', position: 'QB', points: 312, active: true, team_id: team_1.id)
+    player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: team_1.id)
+    player_3 = Player.create!(name: 'Davante Adams', position: 'WR', points: 275, active: false, team_id: team_1.id)
+
+    Player.all.each do |player|
+      visit "/teams/#{team_1.id}/players"
+      within ".player-#{player.id}" do
+        expect(page).to have_link("Update")
+        click_link("Update")
+        expect(current_path).to eq("/players/#{player.id}/edit")
+      end
+    end
   end
 end
