@@ -45,8 +45,8 @@ RSpec.describe 'players index page', type: :feature do
     Player.active_players.each do |player|
       visit '/players'
       within ".player-#{player.id}" do
-        expect(page).to have_link("Update")
-        click_link("Update")
+        expect(page).to have_link("Edit")
+        click_link("Edit")
         expect(current_path).to eq("/players/#{player.id}/edit")
       end
     end

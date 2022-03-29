@@ -3,7 +3,7 @@
 
 <% @players.each do |player| %>
 <div class="player-<%=player.id%>">
-<p> <strong><%= player.name %></strong> : Position: <%= player.position %> Points: <%= player.points %> Active: <%= player.active %> <%= link_to "Update", "/players/#{player.id}/edit" %></p>
+<p> <strong><%= player.name %></strong> : Position: <%= player.position %> Points: <%= player.points %> Active: <%= player.active %> <%= link_to "Edit", "/players/#{player.id}/edit" %></p>
 </div>
 <% end %>
 

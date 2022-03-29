@@ -3,7 +3,7 @@
 
 <% @teams.each do |team| %>
    <div class="team-<%=team.id%>">
-  <p><%= team.name %> <strong>created at</strong> <%= team.readable_date %> <%= link_to "Update", "/teams/#{team.id}/edit" %></p>
+  <p><%= team.name %> <strong>created at</strong> <%= team.readable_date %> <%= link_to "Edit", "/teams/#{team.id}/edit" %></p>
   </div>
   <% end %>
 

@@ -47,8 +47,8 @@ RSpec.describe 'teams index page' do
     Team.all.each do |team|
       visit '/teams'
       within ".team-#{team.id}" do
-        expect(page).to have_link("Update")
-        click_link("Update")
+        expect(page).to have_link("Edit")
+        click_link("Edit")
         expect(current_path).to eq("/teams/#{team.id}/edit")
       end
     end

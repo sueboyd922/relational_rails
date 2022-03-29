@@ -71,8 +71,8 @@ RSpec.describe 'team players page', type: :feature do
     Player.all.each do |player|
       visit "/teams/#{team_1.id}/players"
       within ".player-#{player.id}" do
-        expect(page).to have_link("Update")
-        click_link("Update")
+        expect(page).to have_link("Edit")
+        click_link("Edit")
         expect(current_path).to eq("/players/#{player.id}/edit")
       end
     end
