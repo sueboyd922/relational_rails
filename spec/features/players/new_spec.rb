@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'new player page' do
   before (:each) do
     @team = Team.create!(name: 'Gym Tannehill Laundry', games_played: 9, winning_record: true)
+    @team2 = Team.create!(name: 'Josh Allen Hurdles', games_played: 9, winning_record: true)
   end
 
   it 'is linked through the specific teams players page' do
@@ -25,5 +26,6 @@ RSpec.describe 'new player page' do
     expect(page).to have_content("Gabe Davis")
     expect(page).to have_content("WR")
     expect(page).to have_content(118)
+    expect(page).not_to have_content("Josh Allen Hurdles")
   end
 end
