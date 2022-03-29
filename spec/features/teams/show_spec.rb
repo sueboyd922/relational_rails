@@ -33,4 +33,27 @@ RSpec.describe 'teams show page' do
     click_link("Update #{team_1.name}")
     expect(current_path).to eq("/teams/#{team_1.id}/edit")
   end
+
+  it 'links to delete the team' do
+    jas = Team.create!(name: "Josh Allen's Shorts", games_played: 10, winning_record: true)
+    diggs = Team.create!(name: "Can You Diggs It", games_played: 11, winning_record: true)
+    josh = Player.create!(name: "Josh Allen", position: "QB", points: 240, active: true, team_id: jas.id)
+    davante = Player.create!(name: "Davante Adams", position: "WR", points: 140, active: true, team_id: jas.id)
+    alvin = Player.create!(name: "Alvin Kamara", position: "RB", points: 138, active: true, team_id: jas.id)
+    herb = Player.create!(name: "Justin Herbert", position: "QB", points: 249, active: true, team_id: diggs.id)
+
+    visit "/teams/#{jas.id}"
+
+    click_link ("Delete #{jas.name}")
+    expect(current_path).to eq("/teams")
+
+    expect(page).not_to have_content("Josh Allen's Shorts")
+    expect(page).to have_content("Can You Diggs It")
+
+    visit "/players"
+    expect(page).not_to have_content("Davante Adams")
+    expect(page).not_to have_content("Josh Allen")
+    expect(page).not_to have_content("Alvin Kamara")
+    expect(page).to have_content("Justin Herbert")
+  end
 end
