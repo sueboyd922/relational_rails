@@ -10,4 +10,7 @@ class Player < ApplicationRecord
     where(active: true)
   end
 
+  def self.alphabetize
+    order(name: :asc)
+  end
 end
