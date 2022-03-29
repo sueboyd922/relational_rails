@@ -1,6 +1,5 @@
 class TeamsPlayersController < ApplicationController
   def index
-    # require "pry"; binding.pry
     @team = Team.find(params[:id])
     if params[:alpha] == "yes"
       @players = @team.players.alphabetize
