@@ -21,6 +21,13 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
+  def update
+    @player = Player.find(params[:id])
+    @player.update(players_params)
+    redirect_to "/players/#{@player.id}"
+    # require "pry"; binding.pry
+  end
+
   private
     def players_params
       params.permit(:name, :position, :active, :points)

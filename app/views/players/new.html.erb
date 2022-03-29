@@ -8,6 +8,6 @@
   <%= form.label :points, "Total Season Points" %>
   <%= form.number_field :points, in: 0..1000, step: 1 %><br/><br/>
   <%= form.label :active, "Active?" %>
-  <%= form.select :active, ["true", "false"] %>
+  <%= form.select :active, ["true", "false"] %><br/><br/>
   <%= form.submit "Draft Player" %>
   <% end %>

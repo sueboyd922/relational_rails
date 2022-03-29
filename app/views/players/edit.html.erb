@@ -1,1 +1,13 @@
 <h3>Edit <%= @player.name %></h3>
+
+<%= form_with url: "/players/#{@player.id}", method: :patch, local: true do |form|  %>
+  <%= form.label :name, "Player's Name" %>
+  <%= form.text_field :name, value: "#{@player.name}" %>
+  <%= form.label :position %>
+  <%= form.text_field :position, value: "#{@player.position}" %>
+  <%= form.label :points, "Total Season Points" %>
+  <%= form.number_field :points, in: 0..1000, step: 1, value: @player.points %>
+  <%= form.label :active, "Active?" %>
+  <%= form.select :active, ["true", "false"], value: "false" %>
+  <%= form.submit "Save" %>
+  <% end %>
