@@ -6,7 +6,7 @@
   <%= form.label :winning_record %>
   <%= form.select :winning_record, ["true", "false"] %><br/><br/>
   <%= form.label :games_played %>
-  <%= form.number_field :games_played, in: 0..1000, step: 1 %><br/><br/>
+  <%= form.number_field :games_played, in: 0..20, step: 1 %><br/><br/>
 
   <%= form.submit "Create Team" %>
   <% end %>

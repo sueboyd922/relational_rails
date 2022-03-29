@@ -1,0 +1,13 @@
+<h4> New Player </h4>
+
+<%= form_with url: "/teams/#{@team.id}/players", method: :post, local: true do |form| %>
+  <%= form.label :name, "Player's Name" %>
+  <%= form.text_field :name %><br/><br/>
+  <%= form.label :position %>
+  <%= form.text_field :position %><br/><br/>
+  <%= form.label :points, "Total Season Points" %>
+  <%= form.number_field :points, in: 0..1000, step: 1 %><br/><br/>
+  <%= form.label :active, "Active?" %>
+  <%= form.select :active, ["true", "false"] %>
+  <%= form.submit "Draft Player" %>
+  <% end %>
