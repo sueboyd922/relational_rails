@@ -20,10 +20,20 @@ RSpec.describe 'teams index page' do
 
   it 'shows all the teams in order of created_at, most recent first' do
     visit '/teams'
-  
+
     expect(@team_4.name).to appear_before(@team_3.name)
     expect(@team_3.name).to appear_before(@team_2.name)
     expect(@team_2.name).to appear_before(@team_1.name)
     expect(@team_2.name).not_to appear_before(@team_4.name)
+  end
+
+  it 'each parent has a link to edit their info' do
+    visit '/teams'
+
+    within("#team-#{@team_4.id}") do
+      expect(page).to have_link("Update")
+      click_link("Update")
+      expect(current_path).to eq("/teams/#{@team_4.id}/edit")
+    end
   end
 end
