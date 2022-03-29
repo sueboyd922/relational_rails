@@ -2,7 +2,9 @@
 <h3><%= @team.name %></h3>
 
 <% @players.each do |player| %>
-<p> <strong><%= player.name %></strong> : Position: <%= player.position %> Points: <%= player.points %> Active: <%= player.active %> </p>
+<div class="player-<%=player.id%>">
+<p> <strong><%= player.name %></strong> : Position: <%= player.position %> Points: <%= player.points %> Active: <%= player.active %> <%= link_to "Update", "/players/#{player.id}/edit" %></p>
+</div>
 <% end %>
 
 <%= link_to "Add New Player", "/teams/#{@team.id}/players/new" %>
