@@ -8,7 +8,6 @@ RSpec.describe 'new player page' do
 
   it 'is linked through the specific teams players page' do
     visit "/teams/#{@team.id}/players"
-
     click_link("Add New Player")
     expect(current_path).to eq("/teams/#{@team.id}/players/new")
   end

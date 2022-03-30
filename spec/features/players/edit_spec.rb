@@ -10,10 +10,11 @@ RSpec.describe 'edit players page' do
   end
 
   it 'is linked to edit a player from the player show page' do
-    visit "/players/#{@player_2.id}"
-
-    click_link("Update")
-    expect(current_path).to eq("/players/#{@player_2.id}/edit")
+    Player.all.each do |player|
+      visit "/players/#{player.id}"
+      click_link("Update")
+      expect(current_path).to eq("/players/#{player.id}/edit")
+    end
   end
 
   it 'can edit a player and display the new info' do
@@ -25,9 +26,9 @@ RSpec.describe 'edit players page' do
 
     expect(current_path).to eq("/players/#{@player_2.id}")
     expect(page).to have_content("Derrick Henry")
-    expect(page).not_to have_content("Derrick Henri")
     expect(page).to have_content(273)
-    expect(page).not_to have_content(260)
     expect(page).to have_content("RB")
+    expect(page).not_to have_content(260)
+    expect(page).not_to have_content("Derrick Henri")
   end
 end
