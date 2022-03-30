@@ -1,14 +1,23 @@
-<!-- <a href="/players">Players Index</a> <a href="/teams">Teams Index</a> -->
 <%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Points</th>
+    <th>Active</th>
+    <th>Edit/Delete</th>
+  </tr>
 <% @players.each do |player| %>
+  <tr>
   <div class="player-<%=player.id%>">
-    <p>Player: <%= player.name %>
-      Position: <%= player.position %>
-      Points Scored: <%= player.points %>
-      Active: <%= player.active %>
-      <%= link_to "Edit", "/players/#{player.id}/edit"%>
-      <%= link_to "Delete", "/players/#{player.id}", method: :delete%>
-    </p><br/>
+    <td><%= player.name %></td>
+    <td><%= player.position %></td>
+    <td><%= player.points %></td>
+    <td><%= player.active %></td>
+    <td> <%= link_to "Edit", "/players/#{player.id}/edit"%>
+      <%= link_to "Delete", "/players/#{player.id}", method: :delete%></td>
+    </tr>
   </div>
 <% end %>
+</table>

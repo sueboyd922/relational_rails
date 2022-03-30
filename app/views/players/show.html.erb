@@ -1,8 +1,8 @@
 <%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
 <h3><%= @player.name %></h3>
-<p>Position: <%= @player.position %></p>
-<p>Points Scored: <%= @player.points %></p>
-<p>Active: <%= @player.active %></p>
+<p><strong>Position:</strong> <%= @player.position %></p>
+<p><strong>Points Scored:</strong> <%= @player.points %></p>
+<p><strong>Active:</strong> <%= @player.active %></p>
 
 <%= link_to "Update", "/players/#{@player.id}/edit" %>
 <%= link_to "Delete", "/players/#{@player.id}", method: :delete %>
