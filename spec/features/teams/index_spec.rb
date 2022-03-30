@@ -10,7 +10,6 @@ RSpec.describe 'teams index page' do
 
   it 'shows all teams' do
     visit '/teams'
-
     expect(page).to have_content(@team_1.name)
     expect(page).to have_content(@team_2.name)
     expect(page).to have_content(@team_3.name)
@@ -28,22 +27,6 @@ RSpec.describe 'teams index page' do
   end
 
   it 'each team has a link to edit their info' do
-    # visit '/teams'
-    #
-    # within ".team-#{@team_4.id}" do
-    #   expect(page).to have_link("Update")
-    #   click_link("Update")
-    #   expect(current_path).to eq("/teams/#{@team_4.id}/edit")
-    # end
-    #
-    # visit '/teams'
-    #
-    # within ".team-#{@team_3.id}" do
-    #   expect(page).to have_link("Update")
-    #   click_link("Update")
-    #   expect(current_path).to eq("/teams/#{@team_3.id}/edit")
-    # end
-
     Team.all.each do |team|
       visit '/teams'
       within ".team-#{team.id}" do

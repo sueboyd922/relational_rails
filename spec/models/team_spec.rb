@@ -29,6 +29,16 @@ RSpec.describe Team, type: :model do
       expect(team_1.num_of_players).to eq 2
     end
 
+    it 'can order them by created_at' do
+      jas = Team.create!(name: "Josh Allen's Shorts", games_played: 10, winning_record: true)
+      diggs = Team.create!(name: "Can You Diggs It", games_played: 11, winning_record: true)
+      dak = Team.create!(name: "DakStreet Boys", games_played: 10, winning_record: false)
+      met = Team.create!(name: "How I Metcalf Your Mother", games_played: 11, winning_record: false)
+      punt = Team.create!(name: "No Punt Intended", games_played: 10, winning_record: true)
+
+      expect(Team.ordered_by_create).to eq([punt, met, dak, diggs, jas])
+    end
+
 
   end
 end
