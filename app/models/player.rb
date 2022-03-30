@@ -15,7 +15,6 @@ class Player < ApplicationRecord
   end
 
   def self.points_over(pts)
-    # where(:points.to_s.to_i > pts)
     where("points > ?", pts)
   end
 

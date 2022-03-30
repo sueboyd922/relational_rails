@@ -1,5 +1,5 @@
 <%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
-
+<h2>All Players</h2>
 <table>
   <tr>
     <th>Name</th>
@@ -8,7 +8,7 @@
     <th>Status</th>
     <th>Edit/Delete</th>
   </tr>
-<% @players.each do |player| %>
+      <% @players.each do |player| %>
   <tr>
   <div class="player-<%=player.id%>">
     <td><%= player.name %></td>
