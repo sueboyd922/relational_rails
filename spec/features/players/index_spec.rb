@@ -7,6 +7,7 @@ RSpec.describe 'players index page', type: :feature do
     @player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: @team_1.id)
     @player_3 = Player.create!(name: "Davante Adams", position: 'WR', points: 243, active: false, team_id: @team_1.id)
     @player_4 = Player.create!(name: "Travis Kelce", position: 'TE', points: 224, active: true, team_id: @team_1.id)
+  end
 
   it 'shows all players who are active' do
     # team_1 = Team.create!(name: 'Dakstreet Boys', games_played: 9, winning_record: false)

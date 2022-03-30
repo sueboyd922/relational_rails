@@ -1,4 +1,4 @@
-<h3>Update <%= @team.name %></h3>
+<h3> Edit : <%= @team.name %></h3>
 
 <%= form_with url: "/teams/#{@team.id}", method: :patch, local: true do |form| %>
   <%= form.label :name, "Team Name"%>
@@ -7,5 +7,5 @@
   <%= form.select :winning_record, ["true", "false"], value: @team.winning_record %><br/><br/>
   <%= form.label :games_played %>
   <%= form.number_field :games_played, in: 0..1000, step: 1, value: @team.games_played %><br/><br/>
-  <%= form.submit "Update" %>
+  <%= form.submit "Edit" %>
 <% end %>

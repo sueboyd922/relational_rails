@@ -1,10 +1,10 @@
 <%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
+
+<h2>Team: <%= @team.name %></h2>
+<p><strong>Games Played:</strong> <%= @team.games_played %></p>
+<p><strong>Winning Record:</strong> <%= @team.winning_record %></p>
+<p><strong>Number of Players:</strong> <%= @team.num_of_players %></p>
 <%= link_to "#{@team.name}'s Players", "/teams/#{@team.id}/players" %>
-
-<h4>Team: <%= @team.name %></h4>
-<h5>Games Played: <%= @team.games_played %></h5>
-<h5>Winning Record: <%= @team.winning_record %></h5>
-<h5>Number of Players: <%= @team.num_of_players %></h5>
-
-<%= link_to "Update #{@team.name}", "/teams/#{@team.id}/edit" %>
-<%= link_to "Delete #{@team.name}", "/teams/#{@team.id}", method: :delete %>
+<hr/>
+<%= link_to "Update", "/teams/#{@team.id}/edit" %>
+<%= link_to "Delete", "/teams/#{@team.id}", method: :delete %>

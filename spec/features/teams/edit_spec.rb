@@ -7,7 +7,7 @@ RSpec.describe 'team edit page' do
 
   it 'brings you to an update form' do
     visit "/teams/#{@team_1.id}"
-    click_on "Update #{@team_1.name}"
+    click_on "Update"
     expect(current_path).to eq("/teams/#{@team_1.id}/edit")
   end
 
@@ -17,7 +17,7 @@ RSpec.describe 'team edit page' do
     fill_in("Name", with: "Dakstreet's Back")
     select "true", from: :winning_record
     fill_in("Games played", with: 12)
-    click_on("Update")
+    click_on("Edit")
 
     expect(current_path).to eq("/teams")
     expect(page).to have_content("Dakstreet's Back")

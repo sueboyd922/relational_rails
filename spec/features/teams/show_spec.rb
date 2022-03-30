@@ -29,8 +29,8 @@ RSpec.describe 'teams show page' do
     player_2 = Player.create!(name: 'Derrick Henry', position: 'RB', points: 260, active: true, team_id: team_1.id)
 
     visit "teams/#{team_1.id}"
-    expect(page).to have_link("Update #{team_1.name}")
-    click_link("Update #{team_1.name}")
+    expect(page).to have_link("Update")
+    click_link("Update")
     expect(current_path).to eq("/teams/#{team_1.id}/edit")
   end
 
@@ -44,7 +44,7 @@ RSpec.describe 'teams show page' do
 
     visit "/teams/#{jas.id}"
 
-    click_link ("Delete #{jas.name}")
+    click_link ("Delete")
     expect(current_path).to eq("/teams")
 
     expect(page).not_to have_content("Josh Allen's Shorts")

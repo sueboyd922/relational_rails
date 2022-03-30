@@ -72,7 +72,7 @@ RSpec.describe 'team players page', type: :feature do
 
   it 'can return players with points over a certain threshold' do
     visit "/teams/#{@team_1.id}/players"
-    fill_in("Points Over", with: 265)
+    fill_in("Find players with more points than:", with: 265)
     click_on("Search")
 
     expect(current_path).to eq("/teams/#{@team_1.id}/players")
@@ -82,7 +82,7 @@ RSpec.describe 'team players page', type: :feature do
     expect(page).not_to have_content(@player_4.name)
 
     visit "/teams/#{@team_1.id}/players"
-    fill_in("Points Over", with: 300)
+    fill_in("Find players with more points than:", with: 300)
     click_on("Search")
     expect(page).to have_content("Josh Allen")
     expect(page).not_to have_content("Lamar Jackson")
