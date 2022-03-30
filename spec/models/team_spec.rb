@@ -38,7 +38,5 @@ RSpec.describe Team, type: :model do
 
       expect(Team.ordered_by_create).to eq([punt, met, dak, diggs, jas])
     end
-
-
   end
 end
