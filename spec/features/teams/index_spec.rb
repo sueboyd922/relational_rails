@@ -71,7 +71,6 @@ RSpec.describe 'teams index page' do
         click_link("Delete")
         expect(current_path).to eq("/teams")
       end
-      # require "pry"; binding.pry
       expect(page).not_to have_content(delete_team)
     end
   end
