@@ -18,7 +18,7 @@ RSpec.describe 'team players page', type: :feature do
       expect(page).to have_content(player.name)
       expect(page).to have_content(player.position)
       expect(page).to have_content(player.points)
-      expect(page).to have_content(player.active)
+      expect(page).to have_content(player.active?)
     end
 
     expect(page).not_to have_content(@team_2.name)
@@ -26,21 +26,8 @@ RSpec.describe 'team players page', type: :feature do
       expect(page).not_to have_content(player.name)
       expect(page).not_to have_content(player.position)
       expect(page).not_to have_content(player.points)
-      expect(page).not_to have_content(player.active)
+      expect(page).not_to have_content(player.active?)
     end
-
-    # expect(page).to have_content(@player_1.name)
-    # expect(page).to have_content(@player_1.position)
-    # expect(page).to have_content(@player_1.points)
-    # expect(page).to have_content(@player_1.active)
-    # expect(page).to have_content(@player_2.name)
-    # expect(page).to have_content(@player_2.position)
-    # expect(page).to have_content(@player_2.points)
-    # expect(page).to have_content(@player_2.active)
-    # expect(page).not_to have_content(@player_3.name)
-    # expect(page).not_to have_content(@player_3.position)
-    # expect(page).not_to have_content(@player_3.points)
-    # expect(page).not_to have_content(@player_3.active)
   end
 
   it 'can organize teams players in alphabetical order' do
@@ -85,6 +72,7 @@ RSpec.describe 'team players page', type: :feature do
     fill_in("Find players with more points than:", with: 300)
     click_on("Search")
     expect(page).to have_content("Josh Allen")
+    expect(page).to have_content("Active")
     expect(page).not_to have_content("Lamar Jackson")
     expect(page).not_to have_content("Ezekiel Elliot")
     expect(page).not_to have_content("Derrick Henry")

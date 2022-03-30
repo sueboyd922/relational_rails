@@ -24,6 +24,11 @@ RSpec.describe Player, type: :model do
       @player_4 = Player.create!(name: "Ezekiel Elliot", position: 'QB', points: 209, active: true, team_id: @team_1.id)
     end
 
+    it '#active?' do
+      expect(@player_2.active?).to eq("Active")
+      expect(@player_3.active?).to eq("Inactive")
+    end
+
     it '.active_players' do
       expect(Player.active_players).to eq([@player_1, @player_2, @player_4])
     end

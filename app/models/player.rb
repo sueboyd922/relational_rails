@@ -18,4 +18,8 @@ class Player < ApplicationRecord
     # where(:points.to_s.to_i > pts)
     where("points > ?", pts)
   end
+
+  def active?
+    self.active ? "Active" : "Inactive"
+  end
 end

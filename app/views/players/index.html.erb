@@ -14,7 +14,7 @@
     <td><%= player.name %></td>
     <td><%= player.position %></td>
     <td><%= player.points %></td>
-    <td><%= player.active %></td>
+    <td><%= player.active? %></td>
     <td> <%= link_to "Edit", "/players/#{player.id}/edit"%>
       <%= link_to "Delete", "/players/#{player.id}", method: :delete%>
       <%= link_to "Show", "/players/#{player.id}" %></td>

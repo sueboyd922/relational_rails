@@ -10,7 +10,7 @@ RSpec.describe 'players show page' do
 
     expect(page).to have_content(player_1.name)
     expect(page).to have_content(player_1.position)
-    expect(page).to have_content(player_1.active)
+    expect(page).to have_content(player_1.active?)
     expect(page).to have_content(player_1.points)
 
     expect(page).not_to have_content(player_2.name)
