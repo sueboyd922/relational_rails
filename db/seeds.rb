@@ -21,6 +21,7 @@ davante = Player.create!(name: "Davante Adams", position: "WR", points: 140, act
 alvin = Player.create!(name: "Alvin Kamara", position: "RB", points: 138, active: true, team_id: jas.id)
 harris = Player.create!(name: "Damien Harris", position: "RB", points: 120, active: false, team_id: jas.id)
 higbee = Player.create!(name: "Tyler Higbee", position: "TE", points: 55, active: true, team_id: jas.id)
+folk = Player.create!(name: "Nick Folk", position: "K", points: 102, active: true, team_id: jas.id)
 
 #diggs
 herb = Player.create!(name: "Justin Herbert", position: "QB", points: 249, active: true, team_id: diggs.id)
@@ -35,6 +36,8 @@ dak.players.create!(name: "Cooper Kupp", position: "WR", points: 192, active: tr
 dak.players.create!(name: "Leonard Fournette", position: "RB", points: 138, active: false)
 dak.players.create!(name: "Dawson Knox", position: "TE", points: 79, active: true)
 dak.players.create!(name: "Nick Chubb", position: "RB", points: 140, active: true)
+dak.players.create!(name: "Matt Gay", position: "K", points: 96, active: false)
+dak.players.create!(name: "Greg Joseph", position: "K", points: 98, active: true)
 
 #met
 pat = met.players.create!(name: "Patrick Mahomes", position: "QB", points: 232, active: true)
