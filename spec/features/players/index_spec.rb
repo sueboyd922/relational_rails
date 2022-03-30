@@ -66,10 +66,8 @@ RSpec.describe 'players index page', type: :feature do
       delete_player = player.name
       visit '/players'
       within ".player-#{player.id}" do
-        expect(page).to have_link("Delete")
         click_link("Delete")
         expect(current_path).to eq("/players")
-        require "pry"; binding.pry
       end
       expect(page).not_to have_content(delete_player)
     end
