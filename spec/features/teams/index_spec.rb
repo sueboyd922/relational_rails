@@ -55,14 +55,24 @@ RSpec.describe 'teams index page' do
   end
 
   it 'each team has an option to delete' do
+    # visit '/teams'
+    # within ".team-#{@team_4.id}" do
+    #   expect(page).to have_link("Delete")
+    #   click_link("Delete")
+    #   expect(current_path).to eq("/teams")
+    # end
+    # expect(page).to_not have_content("Red Solo Kupp")
+
     Team.all.each do |team|
+      delete_team = team.name
       visit '/teams'
       within ".team-#{team.id}" do
         expect(page).to have_link("Delete")
         click_link("Delete")
-        expect(current_path).to eq("/teams/#{team.id}")
-        expect(page).not_to have_content("#{team.name}")
+        expect(current_path).to eq("/teams")
       end
+      # require "pry"; binding.pry
+      expect(page).not_to have_content(delete_team)
     end
   end
 end
