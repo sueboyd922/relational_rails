@@ -53,4 +53,26 @@ RSpec.describe 'index links on each page' do
       expect(page).not_to have_content(@player_3.name)
     end
   end
+
+  it 'has links in the players index to players show page' do
+    Player.active_players.each do |player|
+      visit "/players"
+      within ".player-#{player.id}" do
+        click_on("Show")
+        expect(current_path).to eq("/players/#{player.id}")
+      end
+      expect(page).to have_content(player.name)
+    end
+  end
+
+  it 'has links in the teams index to teams show page' do
+    Team.all.each do |team|
+      visit "/teams"
+      within ".team-#{team.id}" do
+        click_on("Show")
+        expect(current_path).to eq("/teams/#{team.id}")
+      end
+      expect(page).to have_content(team.name)
+    end
+  end
 end

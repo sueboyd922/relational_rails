@@ -1,15 +1,22 @@
 <%= link_to "All Players", "/players" %> <%= link_to "All Teams", "/teams" %>
 <h2>Fantasy Football Teams</h2>
-
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Created At</th>
+    <th>Edit/Delete/Show</th>
+  </tr>
 <% @teams.each do |team| %>
+  <tr>
   <div class="team-<%=team.id%>">
-    <p><%= team.name %>
-      <strong>created at</strong>
-      <%= team.readable_date %>
-      <%= link_to "Edit", "/teams/#{team.id}/edit" %>
+    <td><%= team.name %></td>
+    <td><%= team.readable_date %></td>
+    <td><%= link_to "Edit", "/teams/#{team.id}/edit" %>
       <%= link_to "Delete", "/teams/#{team.id}", method: :delete %>
-    </p>
+      <%= link_to "Show", "/teams/#{team.id}" %></td>
   </div>
+  </tr>
   <% end %>
-
+</table>
+<hr/>
 <%= link_to "New Team", "/teams/new" %>

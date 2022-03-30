@@ -7,7 +7,7 @@ RSpec.describe 'team edit page' do
 
   it 'brings you to an update form' do
     visit "/teams/#{@team_1.id}"
-    click_on "Update"
+    click_on ("Edit")
     expect(current_path).to eq("/teams/#{@team_1.id}/edit")
   end
 

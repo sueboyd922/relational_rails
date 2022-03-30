@@ -12,7 +12,7 @@ RSpec.describe 'edit players page' do
   it 'is linked to edit a player from the player show page' do
     Player.all.each do |player|
       visit "/players/#{player.id}"
-      click_link("Update")
+      click_link("Edit")
       expect(current_path).to eq("/players/#{player.id}/edit")
     end
   end

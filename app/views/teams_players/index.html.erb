@@ -11,15 +11,27 @@
 <% end %>
 <hr/>
 
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Position</th>
+    <th>Points</th>
+    <th>Status</th>
+    <th>Edit/Show</th>
+  </tr>
 <% @players.each do |player| %>
+  <tr>
   <div class="player-<%=player.id%>">
-    <p> <strong><%= player.name %></strong></p>
-    <p> Position: <%= player.position %> </p>
-    <p> Points: <%= player.points %></p>
-    <p> Active: <%= player.active %></p>
-    <p><%= link_to "Edit", "/players/#{player.id}/edit" %></p>
-</div>
+    <td> <strong><%= player.name %></strong></td>
+    <td><%= player.position %> </td>
+    <td><%= player.points %></td>
+    <td><%= player.active %></td>
+    <td><%= link_to "Edit", "/players/#{player.id}/edit" %>
+        <%= link_to "Show", "/players/#{player.id}" %></td>
+  </div>
+  <tr>
 <% end %>
+</table>
 
 <hr/>
 <%= link_to "Add New Player", "/teams/#{@team.id}/players/new" %>

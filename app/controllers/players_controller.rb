@@ -5,6 +5,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @team = Team.find(@player.team_id)
   end
 
   def new
