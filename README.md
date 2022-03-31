@@ -1,4 +1,4 @@
-##Relational Rails Project<br>
+<h1>Relational Rails Project<h1><br>
 Interactive Database with Fantasy Football Teams and Players!<br>
 Add, Remove and Edit Teams!<br>
 Add, Remove and Edit Players!<br>
